@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1068589127410",
+    "firebase_url": "https://ecommerce-c54e4.firebaseio.com",
+    "project_id": "ecommerce-c54e4",
+    "storage_bucket": "ecommerce-c54e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068589127410:android:a8aad77dab8218e6b5a26b",
+        "android_client_info": {
+          "package_name": "com.talentnest.everything"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068589127410-b5gkah5ro7mqr8s20rgsmfjbllrt794c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.talentnest.everything",
+            "certificate_hash": "12f3074314a3b404f4d84e2a371ac01c243f9ab6"
+          }
+        },
+        {
+          "client_id": "1068589127410-hg5beu98j2mb5ca7svvadqa3pdsplajv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYWAbqW9AQ1fnUGZDnyj8BbIvsVsXfdFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068589127410-hg5beu98j2mb5ca7svvadqa3pdsplajv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
