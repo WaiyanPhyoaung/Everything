@@ -64,7 +64,7 @@
         android:layout_marginEnd="15dp"
         android:background="@drawable/input_design"
         android:hint="Enter Password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:padding="20dp"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
@@ -80,6 +80,7 @@
         style="@style/btn_style"
         android:layout_marginTop="8dp"
         android:text="Create Account"
+        android:textColor="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/register_password_number" />

@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,9 +22,14 @@
         </activity>
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.HomeActivity"/>
+
+        <activity android:name=".activities.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity android:name=".activities.AdminAddNewProductActivity" />
         <activity android:name=".activities.AdminCategoryActivity" />
+
+
 
         <meta-data
             android:name="preloaded_fonts"

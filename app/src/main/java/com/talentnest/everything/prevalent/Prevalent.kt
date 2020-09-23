@@ -4,6 +4,6 @@ import com.talentnest.everything.model.UserModel
 
 class Prevalent {
     companion object{
-        private lateinit var currentOnlineUser : UserModel
+        lateinit var currentOnlineUser : UserModel
     }
 }

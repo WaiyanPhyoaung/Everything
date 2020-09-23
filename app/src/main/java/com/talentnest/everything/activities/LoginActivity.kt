@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.talentnest.everything.R
 import com.talentnest.everything.model.UserModel
+import com.talentnest.everything.prevalent.Prevalent
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -85,6 +86,7 @@ class LoginActivity : AppCompatActivity() {
                               ).show()
                               hideDialog()
                               val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                              Prevalent.currentOnlineUser = user!!
                               startActivity(intent)
                           }
                        }else{
