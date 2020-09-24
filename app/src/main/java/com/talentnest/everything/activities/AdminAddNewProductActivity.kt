@@ -91,6 +91,7 @@ class AdminAddNewProductActivity : AppCompatActivity() {
             productImageRef.child(imageUri!!.lastPathSegment.toString() + productRandomKey + ".jpg")
 
         val uploadTask = filePath.putFile(imageUri!!)
+
         uploadTask.addOnFailureListener {
             hideDialog()
             Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
@@ -107,11 +108,11 @@ class AdminAddNewProductActivity : AppCompatActivity() {
             }).addOnCompleteListener {
                 if (it.isSuccessful)
                     downloadImageUrl = it.result.toString()
-                    Toast.makeText(
-                        this,
-                        "Got product image Url successfully..",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                Toast.makeText(
+                    this,
+                    "Got product image Url successfully..",
+                    Toast.LENGTH_SHORT
+                ).show()
                 saveProductInfoToDatabase()
             }
         }

@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setSupportActionBar(toolBar)
         val actionBar = supportActionBar
-        actionBar?.title = "Home"
+        actionBar?.title = "Menu"
 
 
         val drawerToggle = ActionBarDrawerToggle(
@@ -62,38 +62,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     }
-
-    private fun logRecycleView() {
-        val options = FirebaseRecyclerOptions.Builder<Product>()
-            .setQuery(databaseRef, Product::class.java)
-            .setLifecycleOwner(this)
-            .build()
-
-        val adapter = object : FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.product_items, parent, false)
-                return ProductViewHolder(view)
-            }
-
-            override fun onBindViewHolder(
-                holder: ProductViewHolder,
-                position: Int,
-                model: Product
-            ) {
-                holder.itemView.product_name.text = model.productName
-                holder.itemView.product_description.text = model.productDescription
-                holder.itemView.product_price.text = model.productPrice
-            }
-
-        }
-        rcy_home.adapter = adapter
-        rcy_home.layoutManager = LinearLayoutManager(
-            this,
-            LinearLayoutManager.VERTICAL, false
-        )
-    }
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout -> {
@@ -127,6 +95,39 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         else
             super.onBackPressed()
     }
+
+    private fun logRecycleView() {
+        val options = FirebaseRecyclerOptions.Builder<Product>()
+            .setQuery(databaseRef, Product::class.java)
+            .setLifecycleOwner(this)
+            .build()
+
+        val adapter = object : FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.product_items, parent, false)
+                return ProductViewHolder(view)
+            }
+
+            override fun onBindViewHolder(
+                holder: ProductViewHolder,
+                position: Int,
+                model: Product
+            ) {
+                holder.itemView.product_name.text = model.productName
+                holder.itemView.product_description.text = model.productDescription
+                holder.itemView.product_price.text = model.productPrice
+            }
+
+        }
+        rcy_home.adapter = adapter
+        rcy_home.layoutManager = LinearLayoutManager(
+            this,
+            LinearLayoutManager.VERTICAL, false
+        )
+    }
+
+
 }
 
 

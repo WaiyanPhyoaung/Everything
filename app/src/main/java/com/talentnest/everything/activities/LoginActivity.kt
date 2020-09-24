@@ -85,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
                                   Toast.LENGTH_SHORT
                               ).show()
                               hideDialog()
-                              val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                              val intent = Intent(this@LoginActivity, NewsFeedActivity::class.java)
                               Prevalent.currentOnlineUser = user!!
                               startActivity(intent)
                           }

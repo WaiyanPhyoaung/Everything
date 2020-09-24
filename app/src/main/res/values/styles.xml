@@ -7,6 +7,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="WithActionBar" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="android:textSize">15sp</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 
     <style name="btn_style">
         <item name="android:layout_width">match_parent</item>
@@ -47,7 +53,7 @@
         <item name="android:layout_marginStart">30dp</item>
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginEnd">30dp</item>
-        <item name="android:fontFamily">@font/arbutus_slab</item>
+        <item name="android:fontFamily">@font/amaranth</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textSize">22sp</item>
