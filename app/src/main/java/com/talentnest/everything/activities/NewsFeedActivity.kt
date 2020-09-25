@@ -55,9 +55,11 @@ class NewsFeedActivity : AppCompatActivity() {
                 holder.itemView.product_description.text = model.productDescription
                 holder.itemView.product_price.text = "Price = ${model.productPrice} $"
                 Glide.with(this@NewsFeedActivity).load(model.productImage).into(holder.itemView.product_image)
+
                 holder.itemView.setOnClickListener {
                     val intent = Intent(this@NewsFeedActivity,ProductDetailsActivity::class.java)
                     intent.putExtra("pid",model.productID)
+                    intent.putExtra("pName",model.productName)
                     startActivity(intent)
                 }
             }

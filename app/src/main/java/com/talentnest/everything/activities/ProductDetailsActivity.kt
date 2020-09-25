@@ -1,5 +1,6 @@
 package com.talentnest.everything.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_product_details.*
 class ProductDetailsActivity : AppCompatActivity() {
 
     private lateinit var productID: String
+    private lateinit var productName : String
     private lateinit var productRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +21,16 @@ class ProductDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product_details)
 
         productID = intent.getStringExtra("pid").toString()
+        productName = intent.getStringExtra("pName").toString()
         getProductDetails(productID)
+
+        buy_now.setOnClickListener {
+            val intent = Intent(this, ConfirmOrderActivity::class.java)
+            intent.putExtra("pid",productID)
+            intent.putExtra("pName",productName)
+            startActivity(intent)
+        }
+
     }
 
     private fun getProductDetails(productID: String) {
