@@ -53,7 +53,7 @@ class NewsFeedActivity : AppCompatActivity() {
             ) {
                 holder.itemView.product_name.text = model.productName
                 holder.itemView.product_description.text = model.productDescription
-                holder.itemView.product_price.text = "Price = ${model.productPrice} $"
+                holder.itemView.product_price.text = "${model.productPrice} $"
                 Glide.with(this@NewsFeedActivity).load(model.productImage).into(holder.itemView.product_image)
 
                 holder.itemView.setOnClickListener {

@@ -41,7 +41,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 if (snapshot.exists()) {
                     val productOne = snapshot.getValue(Product::class.java)
                     product_name.text = productOne!!.productName
-                    product_price.text = productOne!!.productPrice
+                    product_price.text = "${productOne!!.productPrice} $"
                     product_description.text = productOne!!.productDescription
                     Glide.with(this@ProductDetailsActivity).load(productOne.productImage)
                         .into(product_image)
