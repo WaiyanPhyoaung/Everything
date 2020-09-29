@@ -13,8 +13,9 @@ import kotlinx.android.synthetic.main.activity_product_details.*
 class ProductDetailsActivity : AppCompatActivity() {
 
     private lateinit var productID: String
-    private lateinit var productName : String
+    private lateinit var productName: String
     private lateinit var productRef: DatabaseReference
+    private lateinit var productPrice: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +27,9 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         buy_now.setOnClickListener {
             val intent = Intent(this, ConfirmOrderActivity::class.java)
-            intent.putExtra("pid",productID)
-            intent.putExtra("pName",productName)
+            intent.putExtra("pid", productID)
+            intent.putExtra("pName", productName)
+            intent.putExtra("pPrice", productPrice)
             startActivity(intent)
         }
 
@@ -42,6 +44,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                     val productOne = snapshot.getValue(Product::class.java)
                     product_name.text = productOne!!.productName
                     product_price.text = "${productOne!!.productPrice} $"
+                    productPrice = productOne.productPrice.toString()
                     product_description.text = productOne!!.productDescription
                     Glide.with(this@ProductDetailsActivity).load(productOne.productImage)
                         .into(product_image)

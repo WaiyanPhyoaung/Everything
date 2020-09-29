@@ -11,6 +11,17 @@ class AdminCategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_category)
 
+        admin_logout.setOnClickListener {
+            val intent = Intent(this,MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+            finish()
+        }
+        check_order.setOnClickListener {
+            val intent = Intent(this, CheckOrderActivity::class.java)
+            startActivity(intent)
+        }
+
         tshirts.setOnClickListener {
             val intent = goIntent("tshirts")
             startActivity(intent)

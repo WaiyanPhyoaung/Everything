@@ -118,5 +118,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/mobiles" />
+
     </LinearLayout>
+    <Button
+        android:id="@+id/check_order"
+        style="@style/btn_style"
+        android:textColor="@color/background"
+        android:layout_marginTop="8dp"
+        android:text="Check Order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/admin_logout" />
+    <Button
+        android:id="@+id/admin_logout"
+        style="@style/btn_style"
+        android:textColor="@color/background"
+        android:layout_marginTop="8dp"
+        android:text="Log Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
