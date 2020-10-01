@@ -9,23 +9,27 @@
 
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="100dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/logooooo"
         android:tintMode="src_in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/applogo"
-        app:tint="@color/logo_color" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/app_logoText"
+        style="@style/text_style"
+        android:layout_width="224dp"
+        android:layout_height="58dp"
+        android:fontFamily="@font/aref_ruqaa_bold"
+
         android:text="@string/app_logoText"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_logo"
-        style="@style/text_style" />
+        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
 
     <Button
         android:id="@+id/main_login_button"
@@ -42,6 +46,7 @@
 
         android:background="@drawable/input_design"
         android:text="Join Now"
+
         app:layout_constraintBottom_toTopOf="@+id/main_login_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

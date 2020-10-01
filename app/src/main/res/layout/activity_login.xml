@@ -8,15 +8,14 @@
 
     <ImageView
         android:id="@+id/login_logo"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="100dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="150dp"
         android:tintMode="src_in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/applogo"
-        app:tint="@color/logo_color" />
+        app:srcCompat="@drawable/logooooo" />
 
     <EditText
         android:id="@+id/login_phone_number"
