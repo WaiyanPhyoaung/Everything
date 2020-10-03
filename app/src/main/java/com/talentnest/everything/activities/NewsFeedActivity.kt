@@ -3,6 +3,7 @@ package com.talentnest.everything.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.media.MediaBrowserCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,8 +32,8 @@ class NewsFeedActivity : AppCompatActivity() {
         logRecycleView()
 
 
-
     }
+
     private fun logRecycleView() {
         val options = FirebaseRecyclerOptions.Builder<Product>()
             .setQuery(databaseRef, Product::class.java)
@@ -40,7 +41,10 @@ class NewsFeedActivity : AppCompatActivity() {
             .build()
 
         val adapter = object : FirebaseRecyclerAdapter<Product, ProductNewFeedViewHolder>(options) {
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductNewFeedViewHolder {
+            override fun onCreateViewHolder(
+                parent: ViewGroup,
+                viewType: Int
+            ): ProductNewFeedViewHolder {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.product_items, parent, false)
                 return ProductNewFeedViewHolder(view)
@@ -53,19 +57,29 @@ class NewsFeedActivity : AppCompatActivity() {
             ) {
                 holder.itemView.product_name.text = model.productName
                 holder.itemView.product_description.text = model.productDescription
-                holder.itemView.product_price.text = "${model.productPrice} $"
-                Glide.with(this@NewsFeedActivity).load(model.productImage).into(holder.itemView.product_image)
+                holder.itemView.product_price.text = "${model.productPrice} Kyats"
+                Glide.with(this@NewsFeedActivity).load(model.productImage)
+                    .into(holder.itemView.product_image)
 
                 holder.itemView.setOnClickListener {
-                    val intent = Intent(this@NewsFeedActivity,ProductDetailsActivity::class.java)
-                    intent.putExtra("pid",model.productID)
-                    intent.putExtra("pName",model.productName)
+                    val intent = Intent(this@NewsFeedActivity, ProductDetailsActivity::class.java)
+                    intent.putExtra("pid", model.productID)
+                    intent.putExtra("pName", model.productName)
                     startActivity(intent)
                 }
             }
         }
         rcy_new_feed.adapter = adapter
-        rcy_new_feed.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        rcy_new_feed.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+    }
+
+    override fun onBackPressed() {
+
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
+        finish()
 
     }
 }
