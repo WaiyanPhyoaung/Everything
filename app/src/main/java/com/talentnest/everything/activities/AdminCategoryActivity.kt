@@ -2,9 +2,17 @@ package com.talentnest.everything.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.talentnest.everything.R
+import com.talentnest.everything.categoryAdapter.RecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_admin_category.*
+import kotlinx.android.synthetic.main.admin_category_item.view.*
 
 class AdminCategoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +29,7 @@ class AdminCategoryActivity : AppCompatActivity() {
             val intent = Intent(this, CheckOrderActivity::class.java)
             startActivity(intent)
         }
-
+        /*
         tshirts.setOnClickListener {
             val intent = goIntent("tshirts")
             startActivity(intent)
@@ -69,7 +77,11 @@ class AdminCategoryActivity : AppCompatActivity() {
         mobiles.setOnClickListener {
            val intent = goIntent("mobiles")
             startActivity(intent)
-        }
+        } */
+
+        recycler_category.layoutManager = GridLayoutManager(this,4,GridLayoutManager.VERTICAL,false)
+        recycler_category.adapter = RecyclerViewAdapter()
+
     }
 
     private fun goIntent(value: String): Intent {

@@ -86,6 +86,8 @@ class LoginActivity : AppCompatActivity() {
                               ).show()
                               hideDialog()
                               val intent = Intent(this@LoginActivity, NewsFeedActivity::class.java)
+                                  .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                               Prevalent.currentOnlineUser = user!!
                               startActivity(intent)
                           }

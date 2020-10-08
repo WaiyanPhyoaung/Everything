@@ -15,8 +15,10 @@
         android:textColor="@color/colorPrimary"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:text="Add New Product"/>
+        android:text="@string/add_new_product"/>
+    <!--
     <LinearLayout
+
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +32,6 @@
             android:layout_width="wrap_content"
             android:layout_height="82dp"
             android:layout_marginTop="0dp"
-
             android:src="@drawable/tshirts" />
 
         <ImageView
@@ -120,12 +121,29 @@
             android:src="@drawable/mobiles" />
 
     </LinearLayout>
+    -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/check_order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_category" >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_category"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <Button
         android:id="@+id/check_order"
         style="@style/btn_style"
         android:textColor="@color/background"
         android:layout_marginTop="8dp"
-        android:text="Check Order"
+        android:text="@string/check_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/admin_logout" />
@@ -134,7 +152,7 @@
         style="@style/btn_style"
         android:textColor="@color/background"
         android:layout_marginTop="8dp"
-        android:text="Log Out"
+        android:text="@string/log_out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintBottom_toBottomOf="parent" />

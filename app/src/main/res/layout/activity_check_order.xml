@@ -15,7 +15,7 @@
         android:fontFamily="@font/berkshire_swash"
         android:gravity="center"
         android:background="@color/background"
-        android:text="New Order List"
+        android:text="@string/new_order_list"
         android:textColor="@color/colorPrimary"
         android:textSize="25sp"
         android:textStyle="bold"

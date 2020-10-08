@@ -7,6 +7,7 @@ import android.support.v4.media.MediaBrowserCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -23,6 +24,8 @@ import kotlinx.android.synthetic.main.product_items.view.*
 class NewsFeedActivity : AppCompatActivity() {
 
     private lateinit var databaseRef: DatabaseReference
+    private var lastBackClick = 0L
+    private var difference = 2000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +33,6 @@ class NewsFeedActivity : AppCompatActivity() {
 
         databaseRef = FirebaseDatabase.getInstance().reference.child("products")
         logRecycleView()
-
 
     }
 
@@ -76,10 +78,12 @@ class NewsFeedActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
 
-        val intent = Intent(this, MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-        startActivity(intent)
-        finish()
+        val now = System.currentTimeMillis()
+        if(now - lastBackClick > difference) {
+            lastBackClick = now
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show()
+            return
+        }else super.onBackPressed()
 
     }
 }

@@ -20,6 +20,30 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_dsfdkljfasdlkfjsadlj">dsfdkljfasdlkfjsadlj</string>
+    <string name="product_price">Product Price...</string>
+    <string name="product_description">Product Description...</string>
+    <string name="product_name">Product Name...</string>
+    <string name="add_product">Add Product</string>
+    <string name="add_new_product">Add New Product</string>
+    <string name="check_order">Check Order</string>
+    <string name="log_out">Log Out</string>
+    <string name="new_order_list">New Order List</string>
+    <string name="please_fill_customer_information">Please fill customer information</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_contact_phone_number">Enter Contact_phone Number</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="remark">*The product is going to be delivered within 2 or 3 days*</string>
+    <string name="confirm_purchase">Confirm Purchase</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forget_password">Forget password?</string>
+    <string name="i_m_an_admin">I\'m an Admin</string>
+    <string name="i_m_not_an_admin">I\'m not an Admin</string>
+    <string name="join_now">Join Now</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="create_account">Create Account</string>
+    <string name="customer_name">Customer Name</string>
 
 
 </resources>

@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
                 android:padding="3dp"
-                android:text="Customer Name"
+                android:text="@string/customer_name"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="15sp"
                 android:textStyle="normal"

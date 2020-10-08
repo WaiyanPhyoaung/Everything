@@ -43,10 +43,8 @@
     <Button
         android:id="@+id/main_join_now_button"
         style="@style/btn_style"
-
         android:background="@drawable/input_design"
-        android:text="Join Now"
-
+        android:text="@string/join_now"
         app:layout_constraintBottom_toTopOf="@+id/main_login_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
