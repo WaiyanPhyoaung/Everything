@@ -10,11 +10,13 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.talentnest.everything.R
+import com.talentnest.everything.categoryAdapter.Category
 import com.talentnest.everything.categoryAdapter.RecyclerViewAdapter
+import com.talentnest.everything.listener.AdminCategoryListener
 import kotlinx.android.synthetic.main.activity_admin_category.*
 import kotlinx.android.synthetic.main.admin_category_item.view.*
 
-class AdminCategoryActivity : AppCompatActivity() {
+class AdminCategoryActivity : AppCompatActivity(),AdminCategoryListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_category)
@@ -80,7 +82,7 @@ class AdminCategoryActivity : AppCompatActivity() {
         } */
 
         recycler_category.layoutManager = GridLayoutManager(this,4,GridLayoutManager.VERTICAL,false)
-        recycler_category.adapter = RecyclerViewAdapter()
+        recycler_category.adapter = RecyclerViewAdapter(this)
 
     }
 
@@ -88,5 +90,9 @@ class AdminCategoryActivity : AppCompatActivity() {
         val intent = Intent(this, AdminAddNewProductActivity::class.java)
         intent.putExtra("Category", value)
         return intent
+    }
+
+    override fun onItemClicked(data: Category) {
+        goIntent(data.name)
     }
 }

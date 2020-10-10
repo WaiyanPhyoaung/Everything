@@ -5,11 +5,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.talentnest.everything.R
+import com.talentnest.everything.listener.AdminCategoryListener
 
 import kotlinx.android.synthetic.main.admin_category_item.view.*
 
 
-class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyRecyclerViewHolder>() {
+class RecyclerViewAdapter(
+    private val listener:AdminCategoryListener
+) : RecyclerView.Adapter<RecyclerViewAdapter.MyRecyclerViewHolder>() {
+
+    private val categories = CategoryRepository().getListOfCategory()
 
     inner class MyRecyclerViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
@@ -21,10 +26,15 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyRecyclerV
     }
 
     override fun onBindViewHolder(holder: MyRecyclerViewHolder, position: Int) {
-        holder.itemView.iv_category.setImageResource(Categories.getListOfCategory()[position].image)
+        val data = categories[position]
+        holder.itemView.iv_category.setImageResource(data.image)
+        holder.itemView.setOnClickListener {
+            listener.onItemClicked(data)
+        }
     }
 
     override fun getItemCount(): Int {
-        return Categories.getListOfCategory().size
+        return categories.size
     }
+
 }
