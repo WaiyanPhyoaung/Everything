@@ -7,16 +7,16 @@ class CategoryRepository {
         return listOf(
             Category(R.drawable.tshirts, "TShirts"),
             Category(R.drawable.sports, "Sports"),
-            Category(R.drawable.female_dresses),
-            Category(R.drawable.glasses),
-            Category(R.drawable.hats),
-            Category(R.drawable.sweather),
-            Category(R.drawable.headphoness),
-            Category(R.drawable.laptops),
-            Category(R.drawable.watches),
-            Category(R.drawable.purses_bags),
-            Category(R.drawable.mobiles),
-            Category(R.drawable.shoess)
+            Category(R.drawable.female_dresses,"female_dresses"),
+            Category(R.drawable.glasses,"glasses"),
+            Category(R.drawable.hats,"hats"),
+            Category(R.drawable.sweather,"sweather"),
+            Category(R.drawable.headphoness,"head_phones"),
+            Category(R.drawable.laptops,"laptops"),
+            Category(R.drawable.watches,"watches"),
+            Category(R.drawable.purses_bags,"purse_bags"),
+            Category(R.drawable.mobiles,"mobiles"),
+            Category(R.drawable.shoess,"shoes")
         )
     }
 
