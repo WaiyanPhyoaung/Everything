@@ -32,7 +32,9 @@ class ProductDetailsActivity : AppCompatActivity() {
             intent.putExtra("pPrice", productPrice)
             startActivity(intent)
         }
-
+        fav_back.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun getProductDetails(productID: String) {

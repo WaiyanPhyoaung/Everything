@@ -135,6 +135,7 @@ class AdminAddNewProductActivity : AppCompatActivity() {
                 Toast.makeText(this, "Product is added successfully...", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, AdminCategoryActivity::class.java)
                 startActivity(intent)
+                finish()
             } else {
                 hideDialog()
                 val string = it.exception.toString()

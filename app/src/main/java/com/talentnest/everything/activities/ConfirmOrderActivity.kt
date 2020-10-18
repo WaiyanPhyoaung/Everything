@@ -19,7 +19,7 @@ class ConfirmOrderActivity : AppCompatActivity() {
     private lateinit var customerAddress: String
     private lateinit var productID: String
     private lateinit var productName: String
-    private lateinit var productPrice : String
+    private lateinit var productPrice: String
     private lateinit var firebaseRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,10 +70,11 @@ class ConfirmOrderActivity : AppCompatActivity() {
 
         firebaseRef.child(savePurchaseDate + savePurchaseTime)
             .updateChildren(hashMap).addOnSuccessListener {
-            Toast.makeText(this, "Purchased Successfully..", Toast.LENGTH_LONG).show()
-            val intent = Intent(this, NewsFeedActivity::class.java)
-            startActivity(intent)
-        }
+                Toast.makeText(this, "Purchased Successfully..", Toast.LENGTH_LONG).show()
+                val intent = Intent(this, NewsFeedActivity::class.java)
+               startActivity(intent)
+                finish()
+            }
 
 
     }
