@@ -1,5 +1,6 @@
 package com.talentnest.everything.activities
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.talentnest.everything.R
+import com.talentnest.everything.prevalent.Prevalent
 import kotlinx.android.synthetic.main.activity_confirm_order.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -21,6 +23,7 @@ class ConfirmOrderActivity : AppCompatActivity() {
     private lateinit var productName: String
     private lateinit var productPrice: String
     private lateinit var firebaseRef: DatabaseReference
+    private lateinit var userFirebaseRef : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +61,10 @@ class ConfirmOrderActivity : AppCompatActivity() {
         savePurchaseDate = dateFormat.format(calendar.time)
         savePurchaseTime = timeFormat.format(calendar.time)
 
-        firebaseRef = FirebaseDatabase.getInstance().reference.child("purchase list")
+        firebaseRef = FirebaseDatabase.getInstance().reference.child("Admin Purchase List")
+        val sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE)
+        val userPhone = sharedPreferences.getString("phone","")
+        userFirebaseRef = FirebaseDatabase.getInstance().reference.child("User Purchase List").child("$userPhone")
         val hashMap = HashMap<String, Any>()
         hashMap["pId"] = productID
         hashMap["cName"] = customerName
@@ -68,11 +74,16 @@ class ConfirmOrderActivity : AppCompatActivity() {
         hashMap["pPrice"] = productPrice
         hashMap["purDate"] = savePurchaseDate
 
+
         firebaseRef.child(savePurchaseDate + savePurchaseTime)
             .updateChildren(hashMap).addOnSuccessListener {
                 Toast.makeText(this, "Purchased Successfully..", Toast.LENGTH_LONG).show()
+            }
+        userFirebaseRef.child(savePurchaseDate + savePurchaseTime)
+            .updateChildren(hashMap).addOnSuccessListener {
+                Toast.makeText(this, "Updated Purchase List Successfully...", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, NewsFeedActivity::class.java)
-               startActivity(intent)
+                startActivity(intent)
                 finish()
             }
 

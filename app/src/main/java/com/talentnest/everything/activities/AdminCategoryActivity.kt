@@ -1,5 +1,6 @@
 package com.talentnest.everything.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -17,8 +18,13 @@ class AdminCategoryActivity : AppCompatActivity(), AdminCategoryListener {
         setContentView(R.layout.activity_admin_category)
 
         admin_logout.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val sharedPref = getSharedPreferences("MyData", Context.MODE_PRIVATE)
+            val editor = sharedPref.edit()
+            editor.clear()
+            editor.commit()
+            val intent = Intent(this,LoginActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()
         }

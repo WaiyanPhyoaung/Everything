@@ -8,3 +8,11 @@ class AdminOrder(
     val pPrice : String? = null,
     val productName : String? = null
 )
+class UserOrder(
+    val cName: String? = null,
+    val cPhone: String? = null,
+    val cAddress: String? = null,
+    val purDate : String? = null,
+    val pPrice : String? = null,
+    val productName : String? = null
+)

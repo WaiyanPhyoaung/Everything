@@ -13,6 +13,8 @@ import com.talentnest.everything.R
 import com.talentnest.everything.model.UserModel
 import com.talentnest.everything.prevalent.Prevalent
 
+
+
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -70,6 +72,8 @@ class LoginActivity : AppCompatActivity() {
                     Log.i("MOOO", "${user?.phoneNumber}${user?.password}${user?.userName}")
                     if (user?.phoneNumber.equals(loginPhoneNumber)) {
                         if (user?.password.equals(loginPassword)) {
+
+
                             if (parentDbName == "Admins") {
                                 Toast.makeText(
                                     this@LoginActivity,
@@ -77,6 +81,11 @@ class LoginActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 hideDialog()
+
+
+                                val sharedPreferences = getSharedPreferences("MyData",Context.MODE_PRIVATE)
+                                val editor = sharedPreferences.edit()
+                                editor.putString("admin","admin").commit()
 
                                 val intent =
                                     Intent(this@LoginActivity, AdminCategoryActivity::class.java)
@@ -91,8 +100,14 @@ class LoginActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 hideDialog()
-                                val pref = getSharedPreferences("MyData",Context.MODE_PRIVATE)
-                                val editor = pref.edit()
+
+                                val sharedPreferences = getSharedPreferences("MyData",Context.MODE_PRIVATE)
+                                val editor = sharedPreferences.edit()
+                                editor.putString("user","user")
+                                editor.putString("phone",user!!.phoneNumber)
+                                editor.commit()
+
+
                                 val intent =
                                     Intent(this@LoginActivity, NewsFeedActivity::class.java)
                                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)

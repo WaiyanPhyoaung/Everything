@@ -1,8 +1,10 @@
 package com.talentnest.everything.activities
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,10 +18,12 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.talentnest.everything.R
 import com.talentnest.everything.model.Product
+import com.talentnest.everything.prevalent.Prevalent
+
 import kotlinx.android.synthetic.main.activity_news_feed.*
 import kotlinx.android.synthetic.main.product_items.view.*
 
-class NewsFeedActivity : AppCompatActivity() {
+class NewsFeedActivity() : AppCompatActivity() {
 
     private lateinit var databaseRef: DatabaseReference
     private var lastBackClick = 0L
@@ -31,6 +35,25 @@ class NewsFeedActivity : AppCompatActivity() {
 
         databaseRef = FirebaseDatabase.getInstance().reference.child("products")
         logRecycleView()
+
+        fab_logout.setOnClickListener {
+                val sharedPref = getSharedPreferences("MyData",Context.MODE_PRIVATE)
+                val editor = sharedPref.edit()
+                editor.remove("user")
+                editor.commit()
+                val intent = Intent(this,LoginActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                finish()
+            Log.i("NewsFeedActivity","${sharedPref.getString("admin","")},${sharedPref.getString("user","")}")
+            }
+        fab_orders.setOnClickListener {
+            val intent = Intent(this,UsersOrdersActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
     }
 

@@ -25,7 +25,7 @@ class CheckOrderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_order)
 
-        orderRef = FirebaseDatabase.getInstance().reference.child("purchase list")
+        orderRef = FirebaseDatabase.getInstance().reference.child("Admin Purchase List")
         orderRecycler()
     }
 

@@ -67,6 +67,7 @@ class RegisterActivity : AppCompatActivity() {
                     dataHashMap.put("phoneNumber", phoneNumber)
                     dataHashMap.put("password", password)
 
+
                     reference.child("Users").child(phoneNumber)
                         .updateChildren(dataHashMap).addOnCompleteListener {
 
@@ -77,6 +78,7 @@ class RegisterActivity : AppCompatActivity() {
                                     "Congratulation, your account has been created",
                                     Toast.LENGTH_SHORT
                                 ).show()
+
                                 val intent =
                                     Intent(this@RegisterActivity, LoginActivity::class.java)
                                 startActivity(intent)
