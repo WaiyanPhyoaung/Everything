@@ -73,6 +73,7 @@ class ConfirmOrderActivity : AppCompatActivity() {
         hashMap["productName"] = productName
         hashMap["pPrice"] = productPrice
         hashMap["purDate"] = savePurchaseDate
+        hashMap["purId"] = savePurchaseDate + savePurchaseTime
 
 
         firebaseRef.child(savePurchaseDate + savePurchaseTime)

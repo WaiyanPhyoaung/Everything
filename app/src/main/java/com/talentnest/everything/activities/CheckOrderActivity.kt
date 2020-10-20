@@ -1,11 +1,13 @@
 package com.talentnest.everything.activities
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -51,16 +53,31 @@ class CheckOrderActivity : AppCompatActivity() {
                 holder.itemView.customer_name.text = model.cName
                 holder.itemView.customer_phone.text = model.cPhone
                 holder.itemView.customer_address.text = model.cAddress
-                holder.itemView.total_price.text = model.pPrice
+                holder.itemView.total_price.text = model.pPrice + " Kyats"
                 holder.itemView.date.text = model.purDate
                 holder.itemView.productId.text = model.productName
-                Log.i("hahaha","${model.cName} ${model.cPhone}")
+                holder.itemView.setOnClickListener {
+                    showOption(model.purId)
+                }
 
             }
 
         }
         order_recycler.adapter = adapter
         order_recycler.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+
+    }
+
+    private fun showOption(purId : String?) {
+        val itemList = arrayOf("Yes","No")
+      val alertDialog = AlertDialog.Builder(this)
+        alertDialog.setTitle("Have you delivered this product?")
+        alertDialog.setItems(itemList,DialogInterface.OnClickListener { dialogInterface, i ->
+            if(i == 0){
+                orderRef.child(purId!!).removeValue()
+            }else finish()
+        })
+        alertDialog.show()
 
     }
 }
